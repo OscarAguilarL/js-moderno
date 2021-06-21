@@ -9,12 +9,19 @@ let deck = [];
 const types = ['C', 'D', 'H', 'S'];
 const specials = ['A', 'J', 'Q', 'K'];
 
+let puntosJugador = 0,
+  puntosComputadora = 0;
+
+// Referencias del HTML
+const btnPedir = document.querySelector('#btnPedir');
+const puntosHTML = document.querySelectorAll('small');
+
 /**
  * Crea una nueva baraja
  * @returns object
  */
 const createDeck = () => {
-  for (let i = 0; i <= 10; i++) {
+  for (let i = 2; i <= 10; i++) {
     for (let type of types) {
       deck.push(`${i}${type}`);
     }
@@ -41,31 +48,19 @@ const pedirCarta = () => {
   if (deck.length === 0) {
     throw new Error('No hay más cartas en el Deck');
   }
-
   let carta = deck.pop();
-
-  console.log(carta);
-  console.log(deck);
   return carta;
 };
-
-// pedirCarta();
-
-// const valorCarta = (carta) => {
-//   const valor = carta.substring(0, carta.length - 1);
-//   let puntos = 0;
-//   if (isNaN(valor)) {
-//     puntos = valor === 'A' ? 11 : 10;
-//   } else {
-//     puntos = valor * 1;
-//   }
-
-//   console.log(puntos);
-// };
 
 const valorCarta = (carta) => {
   const valor = carta.substring(0, carta.length - 1);
   return isNaN(valor) ? (valor === 'A' ? 11 : 10) : valor * 1;
 };
 
-console.log(valorCarta(pedirCarta()));
+// Eventos
+btnPedir.addEventListener('click', () => {
+  const carta = pedirCarta();
+
+  puntosJugador += valorCarta(carta);
+  puntosHTML[0].innerText = puntosJugador;
+});
