@@ -14,7 +14,8 @@ const areaCirculo = (radio) => PI * radio ** 2;
 
 // *****************************************
 
-// Interacción con el HTML
+// Interacciónes con el HTML
+// CUADRADO
 const calcularPerimetroCuadrado = () => {
   const input = document.getElementById('ladoCuadrado');
   const value = input.value;
@@ -27,4 +28,18 @@ const calcularAreaCuadrado = () => {
   const value = input.value;
   const area = areaCuadrado(value);
   return alert(`El area del cuadrado es: ${area}`);
+};
+
+// TRIANGULO
+const calcularPerimetroTriangulo = () => {
+  const inputLado1 = document.querySelector('#ladoTriangulo1'),
+    inputLado2 = document.querySelector('#ladoTriangulo2'),
+    inputBase = document.querySelector('#baseTriangulo');
+
+  const valueLado1 = inputLado1.value * 1,
+    valueLado2 = inputLado2.value * 1,
+    valueBase = inputBase.value * 1;
+
+  const perimetro = perimetroTriangulo(valueLado1, valueLado2, valueBase);
+  return alert(`El perimetro del triangulo es: ${perimetro}`);
 };
