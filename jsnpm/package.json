@@ -1,0 +1,22 @@
+{
+  "name": "jsnpm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Oscar Aguilar <aguilop.oscar@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "moment": "^2.29.1",
+    "webpack": "^5.41.0"
+  },
+  "devDependencies": {
+    "date-fns": "^2.22.1"
+  },
+  "optionalDependencies": {
+    "eslint": "^7.29.0"
+  }
+}
