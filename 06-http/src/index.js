@@ -1,3 +1,9 @@
 import * as CRUD from './js/crud-provider';
 
-CRUD.getUsuario(4).then(console.log).catch(console.error);
+CRUD.getUser(4).then(console.log).catch(console.error);
+CRUD.createUser({
+  name: 'Oscar',
+  job: 'Programador',
+})
+  .then(console.log)
+  .catch(console.error);
