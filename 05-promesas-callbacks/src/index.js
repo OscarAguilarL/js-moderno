@@ -1,6 +1,6 @@
 // import { promesaLenta, promesaMedia, promesaRapida } from './js/promises';
 // import { buscarHeroe, buscarHeroeAsync } from './js/promises';
-import { obtenerHeroesArr } from './js/await';
+import { obtenerHeroesArr, obtenerHeroeAwait } from './js/await';
 
 // promesaLenta.then(console.log)
 // promesaMedia.then(console.log)
@@ -17,8 +17,9 @@ import { obtenerHeroesArr } from './js/await';
 
 console.time('await');
 
-obtenerHeroesArr().then((heroes) => {
-  console.table(heroes);
-
-  console.timeEnd('await');
-});
+obtenerHeroeAwait('capi2')
+  .then((heroe) => {
+    console.log(heroe);
+    console.timeEnd('await');
+  })
+  .catch(console.warn);
