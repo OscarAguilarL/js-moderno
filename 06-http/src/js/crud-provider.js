@@ -21,4 +21,16 @@ const createUser = async (user) => {
   return await resp.json();
 };
 
-export { getUser, createUser };
+const updateUser = async (user, id) => {
+  const resp = await fetch(`${urlCRUD}/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(user),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  return await resp.json();
+};
+
+export { getUser, createUser, updateUser };
