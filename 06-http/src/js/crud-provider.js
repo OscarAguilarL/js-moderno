@@ -18,6 +18,8 @@ const createUser = async (user) => {
     },
   });
 
+  if (!resp.ok) throw Error('No se puede procesar la solicitud');
+
   return await resp.json();
 };
 
@@ -29,6 +31,8 @@ const updateUser = async (user, id) => {
       'Content-Type': 'application/json',
     },
   });
+
+  if (!resp.ok) throw Error('No se puede procesar la solicitud');
 
   return await resp.json();
 };
