@@ -1,3 +1,5 @@
+import { uploadImage } from './http-provider';
+
 const body = document.body;
 let inputFile, imgFoto;
 
@@ -10,7 +12,7 @@ const createInputFileHtml = () => {
   <input type="file" accept="image/png, image/jpg, image/jpeg" />
 
   <br />
-  <img src="" id="foto class="img-thumbnail" />
+  <img src="" id="foto" class="img-thumbnail" />
   `;
 
   const div = document.createElement('div');
@@ -24,7 +26,11 @@ const createInputFileHtml = () => {
 const events = () => {
   inputFile.addEventListener('change', (event) => {
     const file = event.target.files[0];
-    console.log(file);
+    // console.log(file);
+    uploadImage(file).then((url) => {
+      console.log({ url });
+      imgFoto.src = url;
+    });
   });
 };
 
